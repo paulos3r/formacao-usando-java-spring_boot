@@ -3,6 +3,14 @@ spring:
     name: api
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/vollmed_api
-    username: root
-    password: DADOS
+    url: jdbc:mysql://${DB_HOST}:3306/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      hbm2ddl:
+        auto: ddl-auto
+    show-sql: true
+    format-sql: true
+server:
+  port: 8080
