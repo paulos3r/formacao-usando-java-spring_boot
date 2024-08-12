@@ -1,7 +1,11 @@
 package med.voll.api.controller;
 
 import jakarta.validation.Valid;
-import med.voll.api.medico.*;
+import med.voll.api.domain.medico.DadosDetalhamentoMedico;
+import med.voll.api.domain.medico.DadosListagemMedico;
+import med.voll.api.domain.medico.Medico;
+import med.voll.api.domain.medico.MedicoRepository;
+import med.voll.api.domain.medico.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("medicos")
@@ -35,7 +37,7 @@ public class MedicoController {
   }
 
   @GetMapping
-  public ResponseEntity<Page<DadosListagemMedico>> listarMedico( @PageableDefault(size=10,page=0,sort={"nome"}) Pageable page ){
+  public ResponseEntity<Page<DadosListagemMedico>> listarMedico(@PageableDefault(size=10,page=0,sort={"nome"}) Pageable page ){
     //return repository.findAll( page ).map(DadosListagemMedico::new);
     var pages = repository.findAllByAtivoTrue( page ).map( DadosListagemMedico::new );
     return ResponseEntity.ok( pages );
