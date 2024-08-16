@@ -19,7 +19,7 @@ public class SecurityConfigurations {
   // desabilitar bloqueio padrao de seguranca para configurar nosso proprio padrao
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-    return http.csrf(AbstractHttpConfigurer::disable) // csrf->csrf.disable()
+    return  http.csrf(AbstractHttpConfigurer::disable) // csrf->csrf.disable()
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .build();
   }
