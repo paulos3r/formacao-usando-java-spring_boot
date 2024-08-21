@@ -24,7 +24,7 @@ public class SecurityConfigurations {
 
   // desabilitar bloqueio padrao de seguranca para configurar nosso proprio padrao
   @Bean
-  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{ // aqui onde vamos fazer toda parte de autorizacao e permissao por usuario
     return  http.csrf(AbstractHttpConfigurer::disable) // csrf->csrf.disable()
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(req->{
