@@ -18,11 +18,13 @@ public class TokenService {
   @Value("${api.security.token.secret}")
   private String secret;
 
+  private static final String ISSUER = "API Voll.med";
+
   public String gerarToken(Usuario usuario){
     try {
       var algorithm = Algorithm.HMAC256(secret);
       return JWT.create()
-              .withIssuer("API Voll.mad")
+              .withIssuer(ISSUER)
               .withSubject(usuario.getLogin())
               .withExpiresAt(dataExpiracao())
               .sign(algorithm);
@@ -37,7 +39,7 @@ public class TokenService {
       var algorithm = Algorithm.HMAC256(secret);
       return JWT.require(algorithm)
               // specify any specific claim validations
-              .withIssuer("API Voll.mad")
+              .withIssuer(ISSUER)
               // reusable verifier instance
               .build()
               .verify(tokenJWT)
@@ -45,7 +47,7 @@ public class TokenService {
 
     } catch (JWTVerificationException exception){
       // Invalid signature/claims
-      throw new RuntimeException("Token jwt inválido ou expirado!");
+      throw new RuntimeException("Token jwt inválido ou expirado!" + tokenJWT);
     }
   }
 
