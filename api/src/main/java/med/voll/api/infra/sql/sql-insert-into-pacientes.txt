@@ -1,0 +1,11 @@
+INSERT INTO pacientes (nome, email, telefone, cpf, logradouro, bairro, cep, complemento, numero,uf, cidade) VALUES
+('João Silva', 'joao.silva@email.com', '1198765-4321', '12345678900', 'Rua A', 'Centro', '01000-000', 'Apto 101', 123,'SP', 'São Paulo'),
+('Maria Oliveira', 'maria.oliveira@email.com', '2191234-5678', '23456789011', 'Avenida B', 'Jardim', '02000-000', 'Casa', 456,'SP', 'Rio de Janeiro'),
+('Pedro Santos', 'pedro.santos@email.com', '3192345-6789', '34567890122', 'Rua C', 'Bela Vista', '03000-000', '', 789,'SP', 'Belo Horizonte'),
+('Ana Costa', 'ana.costa@email.com', '4193456-7890', '45678901233', 'Praça D', 'São Francisco', '04000-000', 'Sala 202', 101,'SP', 'Curitiba'),
+('Lucas Almeida', 'lucas.almeida@email.com', '5194567-8901', '56789012344', 'Rua E', 'Centro Histórico', '05000-000', '', 202,'SP', 'Porto Alegre'),
+('Fernanda Lima', 'fernanda.lima@email.com', '6195678-9012', '67890123455', 'Avenida F', 'Asa Norte', '06000-000', 'Bloco A', 303,'SP', 'Brasília'),
+('Rafael Martins', 'rafael.martins@email.com', '7196789-0123', '78901234566', 'Rua G', 'Pituba', '07000-000', 'Ap 303', 404,'SP', 'Salvador'),
+('Juliana Pereira', 'juliana.pereira@email.com', '8197890-1234', '89012345677', 'Rua H', 'Boa Viagem', '08000-000', '', 505,'SP', 'Recife'),
+('Gabriel Souza', 'gabriel.souza@email.com', '9198901-2345', '90123456788', 'Avenida I', 'Belém', '09000-000', 'Conjunto 1', 606,'SP', 'Belém'),
+('Claudia Rocha', 'claudia.rocha@email.com', '1193012-3456', '01234567899', 'Rua J', 'Vila Mariana', '10000-000', 'Casa 2', 707,'SP', 'São Paulo');

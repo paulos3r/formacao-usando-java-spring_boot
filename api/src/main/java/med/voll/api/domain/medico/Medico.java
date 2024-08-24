@@ -9,7 +9,6 @@ import med.voll.api.domain.endereco.Endereco;
 
 @Table(name = "medicos")
 @Entity(name="Medico")
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -48,5 +47,37 @@ public class Medico {
 
   public void excluir() {
     this.ativo= !this.ativo;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getNome() {
+    return nome;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public String getTelefone() {
+    return telefone;
+  }
+
+  public String getCrm() {
+    return crm;
+  }
+
+  public Especialidade getEspecialidade() {
+    return especialidade;
+  }
+
+  public Endereco getEndereco() {
+    return endereco;
+  }
+
+  public Boolean getAtivo() {
+    return ativo;
   }
 }
