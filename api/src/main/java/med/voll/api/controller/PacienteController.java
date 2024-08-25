@@ -22,12 +22,11 @@ public class PacienteController {
   @GetMapping
   public ResponseEntity<Page<DadosLisagemPaciente>> obterListaPacientes(@PageableDefault(size=10,page=0,sort={"nome"}) Pageable page){
 
-  //  var medicos = repository.findByPacienteOrderByNomeAsc(page).map(paciente -> paciente);
     var paciente = repository.findAll(page).map(DadosLisagemPaciente::new);
     paciente.stream().collect(Collectors.toList());
 
     System.out.println(paciente);
-    return ResponseEntity.ok(paciente); // ResponseEntity.ok( medicos );
+    return ResponseEntity.ok(paciente);
   }
 
   @DeleteMapping("/{id}")
