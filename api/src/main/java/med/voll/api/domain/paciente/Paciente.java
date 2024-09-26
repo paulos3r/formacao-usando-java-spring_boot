@@ -26,14 +26,17 @@ public class Paciente {
   @Embedded
   private Endereco endereco;
 
-  public Paciente(DadosLisagemPaciente paciente) {
+  public Paciente(DadosCadastroPaciente paciente) {
     this.nome = paciente.nome();
     this.cpf = paciente.cpf();
     this.email = paciente.email();
+    endereco = new Endereco(paciente.dadosEndereco());
   }
+
   public void excluir(){
     this.ativo = !this.ativo;
   }
+
   public Long getId() {
     return id;
   }
