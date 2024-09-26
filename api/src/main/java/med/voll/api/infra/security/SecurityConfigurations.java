@@ -28,7 +28,8 @@ public class SecurityConfigurations {
     return  http.csrf(AbstractHttpConfigurer::disable) // csrf->csrf.disable()
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(req->{
-              req.requestMatchers(HttpMethod.POST, "/login").permitAll(); // permitir a tela de login autorizacao somente a tela de login somente o post
+              req.requestMatchers(HttpMethod.POST, "/login").permitAll();
+              req.requestMatchers("/v3/api-docs/**","/swagger-ui.html","/swagger-ui/**").permitAll();// permitir a tela de login autorizacao somente a tela de login somente o post
               req.anyRequest().authenticated(); // qualquer ouro precisa de autorizacao
             })
             .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class) // ordem dos filtro a ser chamado pois o spring tambem tem esse filtro, tem que ter a ordem de execulcao
