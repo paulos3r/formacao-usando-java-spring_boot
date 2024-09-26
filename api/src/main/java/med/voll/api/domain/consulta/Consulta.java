@@ -43,10 +43,6 @@ public class Consulta {
     this.motivoCancelamento = motivoCancelamento;
   }
 
-  public void cancelar(){
-    this.ativo = !this.ativo;
-  }
-
   public Long getId() {
     return id;
   }
@@ -62,8 +58,11 @@ public class Consulta {
   public LocalDateTime getData() {
     return data;
   }
-
+  public void ativo(){
+    this.ativo = !this.ativo;
+  }
   public void cancelar(MotivoCancelamento motivo){
     this.motivoCancelamento = motivo;
+    ativo();
   }
 }

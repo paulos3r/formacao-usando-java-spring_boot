@@ -1,6 +1,7 @@
 package med.voll.api.infra.excepition;
 
 import jakarta.persistence.EntityNotFoundException;
+import med.voll.api.domain.ValidacaoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -23,6 +24,10 @@ public class TratadorDeErros {
     var erros = e.getFieldErrors();
 
     return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
+  }
+  @ExceptionHandler(ValidacaoException.class)
+  public ResponseEntity tratarErroRegraDeNegocio(ValidacaoException e){
+    return ResponseEntity.badRequest().body(e.getMessage());
   }
 
   @ExceptionHandler(BadCredentialsException.class)
