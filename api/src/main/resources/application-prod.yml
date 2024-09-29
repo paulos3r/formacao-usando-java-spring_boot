@@ -8,3 +8,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+server:
+  port: 8081
+  error:
+    include-stacktrace: never
